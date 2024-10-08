@@ -10,7 +10,7 @@ import Statistics from '../components/Statictic';
 
 function App() {
 const [chartData , setChartData] = useState([]);
-const [month , setMonth] = useState(10);
+const [month , setMonth] = useState(3);
 const [monthData, setMonthData] = useState([]);
 const [pieData , setPieData] = useState([]);
 const [statictics , setStatictics] = useState({}) ;
@@ -34,9 +34,9 @@ const getAllData = async()=>{
  
   return (
     <div className='w-full'>
-
-      <div className='fixed bg-white w-full mb-10 top-0'>
-      <MonthSelector setSelectedMonth={setMonth} selectedMonth={month}  />
+       <div className='fixed top-0 bg-white w-full h-10 text-center font-bold text-2xl'>Sales Statictic</div>
+      <div className='fixed bg-blue-500 h-12  rounded-lg w-full mb-10 top-8 text-center'>
+          <MonthSelector setSelectedMonth={setMonth} selectedMonth={month}  />
       </div>
      
        <div className=' flex w-full mt-24'>
