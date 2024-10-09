@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Bar } from 'react-chartjs-2';
+import './BarChart.css'; 
+
 import { 
   Chart as ChartJS, 
   CategoryScale, 
@@ -10,7 +12,6 @@ import {
   Legend 
 } from 'chart.js';
 
-// Register necessary components for Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -20,8 +21,6 @@ ChartJS.register(
   Legend
 );
 
-// BarChart component
-// eslint-disable-next-line react/prop-types
 const BarChart = ({ chartData }) => {
  
   if (!Array.isArray(chartData) || chartData.length === 0) {
@@ -36,8 +35,8 @@ const BarChart = ({ chartData }) => {
       {
         label: 'Count',
         data: values,
-        backgroundColor: 'rgba(54, 162, 235, 0.6)', // New background color
-        borderColor: 'rgba(54, 162, 235, 1)', // New border color
+        backgroundColor: 'rgba(54, 162, 235, 0.6)', 
+        borderColor: 'rgba(54, 162, 235, 1)', 
         borderWidth: 1
       }
     ]
@@ -62,7 +61,7 @@ const BarChart = ({ chartData }) => {
   };
 
   return (
-    <div className="w-full h-96 p-4 bg-white rounded-lg shadow-lg">
+    <div className="barchart-container">
       <Bar data={data} options={options} />
     </div>
   );

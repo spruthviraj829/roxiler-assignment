@@ -1,20 +1,19 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-// Utility function to truncate description
+
 const truncateDescription = (description, maxWords) => {
   const words = description.split(' ');
   if (words.length <= maxWords) {
-    return description; // Return original description if within limit
+    return description; 
   }
-  return words.slice(0, maxWords).join(' ') + '...'; // Truncate and add ellipsis
+  return words.slice(0, maxWords).join(' ') + '...'; 
 };
 
 const ProductTable = ({ products }) => {
-  // State to manage which product's description is expanded
   const [expandedProductId, setExpandedProductId] = useState(null);
 
-  // Function to toggle the expanded description
   const toggleDescription = (productId) => {
     setExpandedProductId(prevId => (prevId === productId ? null : productId));
   };
@@ -28,17 +27,17 @@ const ProductTable = ({ products }) => {
             <img
               src={product.image}
               alt={product.title}
-              className="w-32 h-32 object-cover rounded-md mr-4" // Smaller image size and margin to the right
+              className="w-32 h-32 object-cover rounded-md mr-4" 
             />
             <div className="flex-1"> {/* Take remaining space */}
               <h3 className="font-semibold text-lg">{product.title}</h3>
               <p className="text-gray-600">Category: {product.category}</p>
               <p className="text-gray-600">
                 {expandedProductId === product.id
-                  ? product.description // Show full description if expanded
-                  : truncateDescription(product.description, 15) // Truncate if not expanded
+                  ? product.description 
+                  : truncateDescription(product.description, 15) 
                 }
-                {product.description.split(' ').length > 15 && ( // Only show "Click More" if the description is truncated
+                {product.description.split(' ').length > 15 && ( 
                   <span
                     onClick={() => toggleDescription(product.id)}
                     className="text-blue-500 cursor-pointer ml-1"
